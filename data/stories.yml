@@ -1,0 +1,202 @@
+version: "3.1"
+
+stories:
+
+## 1st reservation example
+- story: reservation story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "20.10.2023"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "2"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "1"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "suite"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "Murat"
+  - action: utter_confirm_reservation
+  - action: utter_goodbye
+
+
+
+- story: reservation story 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "tomorrow"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "5"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "3"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "single"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "Mark"
+  - action: utter_confirm_booking
+  - intent: affirm
+  - action: utter_booking_confirmed
+  - intent: deny 
+  - action: utter_undo_reservation
+  - action: utter_ask_reservation_date
+
+
+
+  ## 3rd reservation example
+- story: reservation story 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "after a week"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "4"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "2"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "double"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "John"
+  - action: utter_confirm_reservation
+  - action: utter_goodbye
+
+## 4th story
+- story: reservation story 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "next Friday"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "2"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "1"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "suit"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "Moaaz"
+  - action: utter_confirm_booking
+  - intent: affirm
+  - action: utter_booking_confirmed
+  - intent: deny 
+  - action: utter_undo_reservation
+  - action: utter_ask_reservation_date
+
+
+## 5th story
+- story: reservation story 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "this Weekend"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "4"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "2"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "double"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "Sara"
+  - action: utter_confirm_booking
+  - intent: affirm
+  - action: utter_booking_confirmed
+  - intent: deny 
+  - action: utter_undo_reservation
+  - action: utter_ask_reservation_date
+
+
+## 6th story
+- story: reservation story 6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: utter_ask_reservation_date
+  - intent: inform
+    entities:
+    - reservation_date: "next Friday"
+  - action: utter_ask_num_of_people
+  - intent: inform
+    entities:
+    - num_of_people: "5"
+  - action: utter_ask_num_of_rooms
+  - intent: inform
+    entities:
+    - num_of_rooms: "3"
+  - action: utter_ask_room_types
+  - intent: inform
+    entities:
+    - room_types: "double"
+  - action: utter_ask_person_name
+  - intent: inform
+    entities:
+    - person_name: "Leen"
+  - action: utter_confirm_booking
+  - intent: affirm
+  - action: utter_booking_confirmed
+  - intent: deny 
+  - action: utter_undo_reservation
+  - action: utter_ask_reservation_date
+
+
+
+

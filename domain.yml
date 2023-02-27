@@ -1,0 +1,78 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - inform
+  - request_room_booking
+
+entities:
+- reservation_date
+- num_of_people
+- num_of_rooms
+- room_types
+- person_name
+
+actions:
+  - utter_undo_reservation
+  - utter_ask_room_types
+
+solts:
+  reservation_date:
+    type: unfeaturized
+  
+  num_of_people:
+    type: unfeaturized
+  
+  num_of_rooms:
+    type: unfeaturized
+
+  room_types:
+    type: unfeaturized
+  
+  person_name:
+    type: unfeaturized
+  
+
+responses:
+  utter_greet:
+  - text: "Hello there! How can i help you?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_person_name:
+  - text: "Please provide the name of the person to save this reservation for"
+
+  utter_ask_num_of_rooms:
+  - text: "please provide the number of rooms to be booked"
+
+  utter_ask_type_of_rooms:
+  - text: "please provide the type of rooms to be booked"
+
+  utter_ask_reservation_date:
+  - text: "please specify the preferred date of reservation"
+
+  utter_ask_num_of_people:
+  - text: "Please provide the numebr of guests"
+
+  utter_confirm_reservation:
+  - text: "Thank you for your reservation!, we have booked your {num_of_rooms} {room_types} room(s) for {num_of_people} people on {reservation_date} under the name {person_name}. We look forward to seeing you."
+
+  utter_booking_confirmed:
+  - text: "Great, your booking is confirmed. We're looking forward to seeing you!"
+
+  utter_confirm_booking:
+  - text: "Okay, I have you down for {num_of_rooms} {room_types} room(s) for {num_of_people} people on {reservation_date}. Should I go ahead and book this for you, {person_name}?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
