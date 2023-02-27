@@ -58,7 +58,6 @@ nlu:
 
 - intent: inform
   examples: |
-    - [tomorrow](reservation_date)
     - [3](num_of_people)
     - [2](num_of_rooms)
     - [single](room_types)
@@ -90,6 +89,12 @@ nlu:
     - I changed my mind
     - i dont think so
 
+- intent: ask_time
+  examples: |
+    - what time is it right now?
+    - whats the day today?
+    - what is today?
+    - what is the day after tomorrow?
 
 
   

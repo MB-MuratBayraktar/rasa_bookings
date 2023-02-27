@@ -7,33 +7,62 @@ intents:
   - deny
   - inform
   - request_room_booking
+  - ask_time
 
 entities:
-- reservation_date
-- num_of_people
-- num_of_rooms
-- room_types
-- person_name
+  - reservation_date
+  - num_of_people
+  - num_of_rooms
+  - room_types
+  - person_name
+  - time
 
 actions:
   - utter_undo_reservation
   - utter_ask_room_types
 
-solts:
+slots:
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+
   reservation_date:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: reservation_date
   
   num_of_people:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: num_of_people
   
   num_of_rooms:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: num_of_rooms
 
   room_types:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: room_types
   
   person_name:
-    type: unfeaturized
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: person_name
   
 
 responses:
@@ -72,6 +101,9 @@ responses:
 
   utter_confirm_booking:
   - text: "Okay, I have you down for {num_of_rooms} {room_types} room(s) for {num_of_people} people on {reservation_date}. Should I go ahead and book this for you, {person_name}?"
+
+  utter_time:
+  - text: "it is {time}."
 
 session_config:
   session_expiration_time: 60

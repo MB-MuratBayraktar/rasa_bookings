@@ -10,8 +10,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "20.10.2023"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -40,8 +38,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "tomorrow"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -75,8 +71,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "after a week"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -104,8 +98,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "next Friday"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -138,8 +130,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "this Weekend"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -172,8 +162,6 @@ stories:
   - intent: request_room_booking
   - action: utter_ask_reservation_date
   - intent: inform
-    entities:
-    - reservation_date: "next Friday"
   - action: utter_ask_num_of_people
   - intent: inform
     entities:
@@ -196,6 +184,15 @@ stories:
   - intent: deny 
   - action: utter_undo_reservation
   - action: utter_ask_reservation_date
+
+
+
+- story: ask time
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_time
+  - action: utter_time
 
 
 
