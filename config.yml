@@ -26,12 +26,13 @@ pipeline:
   - name: "DucklingEntityExtractor"
     url: "http://localhost:8000"
     dimensions : ["time"]
-    locale: "de_DE"
-    timezone: "Europe/Berlin"
 
 
 policies:
-- name: MemoizationPolicy
+- name: RulePolicy
+- name: AugmentedMemoizationPolicy
 - name: TEDPolicy
-  max_history: 5
-  epochs: 10
+  max_history: 8
+  epochs: 100
+  constrain_similarities: true
+  model_confidence: softmax

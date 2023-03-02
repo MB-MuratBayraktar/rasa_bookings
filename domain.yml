@@ -24,7 +24,7 @@ actions:
 slots:
   time:
     type: text
-    influence_conversation: false
+    influence_conversation: True
     mappings:
     - type: from_entity
       entity: time
