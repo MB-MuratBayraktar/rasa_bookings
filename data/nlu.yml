@@ -56,15 +56,23 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: inform
+- intent: inform_time
   examples: |
-    - [3](num_of_people)
-    - [2](num_of_rooms)
-    - [single](room_types)
-    - [double](room_types)
-    - [queen](room_types)
-    - [king](room_types)
-    - [John](person_name)
+    - i will come next week
+    - i want to reserve tomorrow
+    - next weekend
+
+- intent: inform_num_people
+  examples: |
+    - 3 persons
+    - 2 adults
+    - 5 adults
+
+- intent: inform_number_of_rooms
+  examples: |
+    - 3 rooms
+    - 2 rooms
+    - 5 rooms
 
 - intent: request_room_booking
   examples: |

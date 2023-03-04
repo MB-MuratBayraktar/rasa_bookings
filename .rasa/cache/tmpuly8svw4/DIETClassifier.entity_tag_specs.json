@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-person_name",
+      "2": "I-person_name",
+      "3": "L-person_name",
+      "4": "U-person_name",
+      "5": "B-room_types",
+      "6": "I-room_types",
+      "7": "L-room_types",
+      "8": "U-room_types",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-person_name": 1,
+      "I-person_name": 2,
+      "L-person_name": 3,
+      "U-person_name": 4,
+      "B-room_types": 5,
+      "I-room_types": 6,
+      "L-room_types": 7,
+      "U-room_types": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

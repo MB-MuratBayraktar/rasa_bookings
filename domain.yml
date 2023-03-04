@@ -5,17 +5,19 @@ intents:
   - goodbye
   - affirm
   - deny
-  - inform
+  - inform_time
+  - inform_num_people
+  - inform_number_of_rooms
   - request_room_booking
   - ask_time
 
 entities:
-  - reservation_date
-  - num_of_people
-  - num_of_rooms
+  - number_of_rooms
   - room_types
   - person_name
   - time
+  - number
+  
 
 actions:
   - utter_undo_reservation
@@ -24,31 +26,24 @@ actions:
 slots:
   time:
     type: text
-    influence_conversation: True
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: time
 
-  reservation_date:
+  number:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: reservation_date
+      entity: number
   
-  num_of_people:
+  number_of_rooms:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: num_of_people
-  
-  num_of_rooms:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: num_of_rooms
+      entity: number_of_rooms
 
   room_types:
     type: text
@@ -93,14 +88,8 @@ responses:
   utter_ask_num_of_people:
   - text: "Please provide the numebr of guests"
 
-  utter_confirm_reservation:
-  - text: "Thank you for your reservation!, we have booked your {num_of_rooms} {room_types} room(s) for {num_of_people} people on {reservation_date} under the name {person_name}. We look forward to seeing you."
-
-  utter_booking_confirmed:
-  - text: "Great, your booking is confirmed. We're looking forward to seeing you!"
-
   utter_confirm_booking:
-  - text: "Okay, I have you down for {num_of_rooms} {room_types} room(s) for {num_of_people} people on {reservation_date}. Should I go ahead and book this for you, {person_name}?"
+  - text: "Okay, I have you reserved {number_of_rooms} of rooms on {time} for {number} people"
 
   utter_time:
   - text: "it is {time}."
