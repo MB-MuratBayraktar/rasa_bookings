@@ -5,61 +5,39 @@ intents:
   - goodbye
   - affirm
   - deny
-  - inform_time
-  - inform_num_people
-  - inform_number_of_rooms
   - request_room_booking
-  - ask_time
+  - inform
+  - stop
 
 entities:
-  - number_of_rooms
-  - room_types
-  - person_name
-  - time
-  - number
+  - room_type
+  - city
   
 
-actions:
-  - utter_undo_reservation
-  - utter_ask_room_types
+forms:
+  simple_booking_form:
+    required_slots: 
+    - room_type
+    - city
+
 
 slots:
-  time:
+  room_type:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
     - type: from_entity
-      entity: time
+      entity: room_type
 
-  number:
+  city:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
     - type: from_entity
-      entity: number
-  
-  number_of_rooms:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: number_of_rooms
+      entity: city
 
-  room_types:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: room_types
-  
-  person_name:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: person_name
-  
 
+  
 responses:
   utter_greet:
   - text: "Hello there! How can i help you?"
@@ -94,6 +72,26 @@ responses:
   utter_time:
   - text: "it is {time}."
 
+  utter_submit:
+  - text: "your booking is done!"
+
+  utter_booking_info:
+  - text: "here's a recap of your booking, i reserved a {room_type} in {city} for you!"
+
+  utter_ask_continue:
+  - text: Are you sure you want to stop the form?
+
+  utter_ask_room_type:
+  - text: What type of room would you like to book?
+  
+  utter_ask_city:
+  - text: In which city would you like to book your room?
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+actions:
+- validate_simple_booking_form
+- utter_submit
+- utter_booking_info

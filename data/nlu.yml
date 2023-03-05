@@ -56,30 +56,20 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: inform_time
-  examples: |
-    - i will come next week
-    - i want to reserve tomorrow
-    - next weekend
-
-- intent: inform_num_people
-  examples: |
-    - 3 persons
-    - 2 adults
-    - 5 adults
-
-- intent: inform_number_of_rooms
-  examples: |
-    - 3 rooms
-    - 2 rooms
-    - 5 rooms
-
 - intent: request_room_booking
   examples: |
     - i want to book a room
     - book a room
     - can i reserve a room
     - i need to make a reservation
+
+- intent: stop
+  examples: |
+    - stop
+    - nevermind
+    - please stop
+    - i want to stop
+    - stop the form
 
 - intent: affirm
   examples: |
@@ -97,12 +87,25 @@ nlu:
     - I changed my mind
     - i dont think so
 
-- intent: ask_time
+- intent: inform
   examples: |
-    - what time is it right now?
-    - whats the day today?
-    - what is today?
-    - what is the day after tomorrow?
-
+    - i want to book a [single](room_type) room
+    - i would like to reserve a [double](room_type) room
+    - i want to book a [suit](room_type)
+    - i would like to reserve a [suit](room_type)
+    - book a [single](room_type) room please
+    - book us a [double](room_type) room please
+    - i want to book a [single](room_type) room in [Berlin](city)
+    - please reserve a [double](room_type) room in [Munich](city)
+    - i would like to book a [suit](room_type) in [Hamburg](city)
+    - book a [suit](room_type) in [Frankfurt](city)
+    - reserve a [single](room_type) room in [Munich](city)
+    - i want to book a [single](room_type) room in [Berlin](city) please
+    - i would like to reserve a [double](room_type) room in [Munich](city) please
+    - i want to book a [suit](room_type) in [Hamburg](city) please
+    - i would like to reserve a [suit](room_type) in [Frankfurt](city) please
+    - book a [double](room_type) room
+    - reserve me a [suit](room_type)
+    - we would like to book a [double](room_type) room in [Munich](city)
 
   

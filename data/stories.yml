@@ -10,19 +10,95 @@ stories:
 
 
 ## 1st reservation example
-- story: reservation story
+#- story: reservation story
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: request_room_booking
+#  - action: utter_ask_reservation_date
+#  - intent: inform_time
+#  - action: utter_ask_num_of_people
+#  - intent: inform_num_people
+#  - action: utter_confirm_booking
+#  - action: utter_goodbye
+
+
+
+- story: interactive_story_1
   steps:
   - intent: greet
   - action: utter_greet
   - intent: request_room_booking
-  - action: utter_ask_reservation_date
-  - intent: inform_time
-  - action: utter_ask_num_of_people
-  - intent: inform_num_people
-  - action: utter_confirm_booking
+  - action: simple_booking_form
+  - active_loop: simple_booking_form
+  - slot_was_set:
+    - requested_slot: room_type
+  - slot_was_set:
+    - room_type: single
+  - slot_was_set:
+    - room_type: single
+  - slot_was_set:
+    - requested_slot: city
+  - slot_was_set:
+    - city: Berlin
+  - slot_was_set:
+    - city: null
+  - slot_was_set:
+    - requested_slot: city
+  - slot_was_set:
+    - city: Berlin
+  - slot_was_set:
+    - city: null
+  - slot_was_set:
+    - requested_slot: city
+  - slot_was_set:
+    - city: Berlin
+  - slot_was_set:
+    - city: Berlin
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_booking_info
+  - intent: goodbye
   - action: utter_goodbye
 
 
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_room_booking
+  - action: simple_booking_form
+  - active_loop: simple_booking_form
+  - slot_was_set:
+    - requested_slot: city
+  - slot_was_set:
+    - city: munich
+  - slot_was_set:
+    - city: munich
+  - slot_was_set:
+    - requested_slot: city
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: goodbye
+  - action: utter_goodbye
 
-
-
+- story: interactive_story_1
+  steps:
+  - intent: request_room_booking
+  - action: simple_booking_form
+  - active_loop: simple_booking_form
+  - slot_was_set:
+    - requested_slot: room_type
+  - slot_was_set:
+    - room_type: single
+  - slot_was_set:
+    - room_type: single
+  - slot_was_set:
+    - requested_slot: room_type
