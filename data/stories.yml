@@ -32,6 +32,12 @@ stories:
   - action: simple_booking_form
   - active_loop: simple_booking_form
   - slot_was_set:
+    - requested_slot: time
+  - slot_was_set:
+    - room_type: null
+  - slot_was_set:
+    - time: null
+  - slot_was_set:
     - requested_slot: room_type
   - slot_was_set:
     - room_type: single
@@ -72,6 +78,12 @@ stories:
   - action: simple_booking_form
   - active_loop: simple_booking_form
   - slot_was_set:
+    - requested_slot: time
+  - slot_was_set:
+    - room_type: tomorrow
+  - slot_was_set:
+    - time: tomorrow
+  - slot_was_set:
     - requested_slot: city
   - slot_was_set:
     - city: munich
@@ -94,6 +106,12 @@ stories:
   - intent: request_room_booking
   - action: simple_booking_form
   - active_loop: simple_booking_form
+  - slot_was_set:
+    - requested_slot: time
+  - slot_was_set:
+    - room_type: this weekend
+  - slot_was_set:
+    - time: this weekend
   - slot_was_set:
     - requested_slot: room_type
   - slot_was_set:

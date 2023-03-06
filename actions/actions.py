@@ -44,3 +44,16 @@ class ValidateSimpleBookingForm(FormValidationAction):
         dispatcher.utter_message(text=f"OK! your reservation will be set in {slot_value}")
         return {"city":slot_value}
     
+    def validate_time(self, slot_value: Any, dispatcher: CollectingDispatcher,tracker: Tracker,
+                       domain: DomainDict) -> Dict[Text, Any]:
+        """validate the time"""
+        
+        duckling_time = tracker.get_slot("time")
+        if duckling_time is not None:
+            dispatcher.utter_message(text=f"OK! your reservation time will be set on the following date: {slot_value}")    
+            return {"time":duckling_time}
+    
+        dispatcher.utter_message(text=f"the current available rooms are only located in those cities: {'/'.join(ALLOWED_CITIES)}, \n Please choose one of them.") 
+        return {"time":None}
+        
+    

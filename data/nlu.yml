@@ -107,5 +107,11 @@ nlu:
     - book a [double](room_type) room
     - reserve me a [suit](room_type)
     - we would like to book a [double](room_type) room in [Munich](city)
+    - tomorrow
+    - this weekend
+    - i want to reserve tomorrow
+    - this weekend at 9 am
+    
+
 
   
