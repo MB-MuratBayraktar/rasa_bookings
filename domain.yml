@@ -14,17 +14,29 @@ entities:
   - room_type
   - city
   - time
-  
 
 forms:
-  simple_booking_form:
+  booking_form:
     required_slots: 
-    - room_type
-    - city
-    - time
-
-
+      - room_type
+      - city
+      - time
+    
 slots:
+  return_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: time
+
+  checkin_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: time
+
   room_type:
     type: text
     influence_conversation: true
@@ -47,7 +59,6 @@ slots:
     - type: from_entity
       entity: city
 
-
   
 responses:
   utter_greet:
@@ -65,9 +76,6 @@ responses:
   utter_submit:
   - text: "your booking is done!"
 
-  utter_booking_info:
-  - text: "here's a recap of your booking, i reserved a {room_type} room in {city} on {time} for you!"
-
   utter_ask_continue:
   - text: Are you sure you want to stop the form?
 
@@ -80,11 +88,16 @@ responses:
   utter_ask_time:
   - text: "please specify the preferred date of reservation"
 
+  utter_ask_number:
+  - text: "could you please state the number of expected visitors (including you)?"
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 actions:
-- validate_simple_booking_form
 - utter_submit
-- utter_booking_info
+- utter_ask_continue
+- utter_goodbye
+- utter_greet
+- validate_booking_form

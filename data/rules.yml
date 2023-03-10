@@ -15,28 +15,27 @@ rules:
 - rule: Activate Booking Form
   steps:
   - intent: request_room_booking
-  - action: simple_booking_form
-  - active_loop: simple_booking_form
+  - action: booking_form
+  - active_loop: booking_form
 
 - rule: Submit Booking Form
   condition:
-  - active_loop: simple_booking_form
+  - active_loop: booking_form
   steps:
-  - action: simple_booking_form
+  - action: booking_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit
-  - action: utter_booking_info
 
 - rule: Interruption in booking Form
   condition:
   # Condition that form is active.
-  - active_loop: simple_booking_form
+  - active_loop: booking_form
   steps:
   # This unhappy path handles the case of an intent `bot_challenge`.
   - intent: bot_challenge
   - action: utter_iamabot
   # Return to form after handling the `bot_challenge` intent
-  - action: simple_booking_form
-  - active_loop: simple_booking_form
+  - action: booking_form
+  - active_loop: booking_form

@@ -29,8 +29,8 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: request_room_booking
-  - action: simple_booking_form
-  - active_loop: simple_booking_form
+  - action: booking_form
+  - active_loop: booking_form
   - slot_was_set:
     - requested_slot: time
   - slot_was_set:
@@ -65,7 +65,6 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: utter_submit
-  - action: utter_booking_info
   - intent: goodbye
   - action: utter_goodbye
 
@@ -75,8 +74,8 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: request_room_booking
-  - action: simple_booking_form
-  - active_loop: simple_booking_form
+  - action: booking_form
+  - active_loop: booking_form
   - slot_was_set:
     - requested_slot: time
   - slot_was_set:
@@ -104,8 +103,8 @@ stories:
 - story: interactive_story_1
   steps:
   - intent: request_room_booking
-  - action: simple_booking_form
-  - active_loop: simple_booking_form
+  - action: booking_form
+  - active_loop: booking_form
   - slot_was_set:
     - requested_slot: time
   - slot_was_set:
