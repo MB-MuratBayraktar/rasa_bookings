@@ -14,6 +14,9 @@ entities:
   - room_type
   - city
   - time
+  - first_name
+  - last_name
+  
 
 forms:
   booking_form:
@@ -21,8 +24,24 @@ forms:
       - room_type
       - city
       - time
+      - first_name
+      - last_name
     
 slots:
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: first_name
+
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: last_name
+
   return_date:
     type: text
     influence_conversation: true
@@ -86,11 +105,17 @@ responses:
   - text: In which city would you like to book your room?
 
   utter_ask_time:
-  - text: "please specify the preferred date of reservation"
+  - text: "please specify the preferred check-in and check-out date of reservation as "from... to ..."
 
   utter_ask_number:
   - text: "could you please state the number of expected visitors (including you)?"
 
+  utter_ask_first_name:
+  - text: "In order to address your booking, could you please provide me your first name "
+
+  utter_ask_last_name:
+  - text: "And your surname please."
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

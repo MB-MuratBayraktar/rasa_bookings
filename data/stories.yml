@@ -32,6 +32,18 @@ stories:
   - action: booking_form
   - active_loop: booking_form
   - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: murat
+  - slot_was_set:
+    - first_name: murat
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: bayraktar
+  - slot_was_set:
+    - last_name: bayraktar
+  - slot_was_set:
     - requested_slot: time
   - slot_was_set:
     - room_type: null
@@ -76,6 +88,16 @@ stories:
   - intent: request_room_booking
   - action: booking_form
   - active_loop: booking_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: sara
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: bacher
+  - slot_was_set:
+    - last_name: bacher
   - slot_was_set:
     - requested_slot: time
   - slot_was_set:

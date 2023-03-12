@@ -56,6 +56,7 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+
 - intent: request_room_booking
   examples: |
     - i want to book a room
@@ -111,6 +112,16 @@ nlu:
     - this weekend
     - i want to reserve tomorrow
     - this weekend at 9 am
+    - my name is [Murat](first_name) [Bayraktar](last_name)
+    - my name is [John](first_name)
+    - my name is [Sara](first_name)
+    - my name is [Melanie](first_name)
+    - my name is [Anna](first_name)
+    - surname is [Bayraktar](last_name)
+    - surname is [Joel](last_name)
+    - surname is [Kaddah](last_name)
+    - surname is [Sabanci](last_name)
+    - surname is [Bayrak](last_name)
     
 
 
