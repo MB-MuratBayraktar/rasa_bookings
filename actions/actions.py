@@ -24,11 +24,11 @@ class ValidateBookingForm(FormValidationAction):
         return "validate_booking_form"
 
     @staticmethod
-    def allowed_cities() -> List[Text] :
+    def city_allowed() -> List[Text] :
         return ["berlin", "munich", "frankfurt", "hamburg"]
     
     @staticmethod
-    def allowed_rooms() -> List[Text]:
+    def room_type_allowed() -> List[Text]:
         return ["single", "double", "suit"]
     
     
@@ -48,6 +48,7 @@ class ValidateBookingForm(FormValidationAction):
                       tracker: Tracker, domain: DomainDict) -> Dict[Text, Any]:
         
         last_name = clean_name(slot_value)
+        reg_room_type = tracker.get_slot("room_type")
 
         if len(slot_value) ==0:
             dispatcher.utter_message(text=f"I think you mis-spelled your surname.")
@@ -58,7 +59,7 @@ class ValidateBookingForm(FormValidationAction):
                 dispatcher.utter_message(text="this is too short for a full name, i suspect a type. Restarting!")
                 return {"first_name":None,"last_name":None}
             
-            dispatcher.utter_message(text=f"Ok, successfuly registered your full name as {reg_first_name} {slot_value}.")    
+            dispatcher.utter_message(text=f"Ok, successfuly registered your {reg_room_type} room under your name: {reg_first_name} {slot_value}.")    
             return {"last_name": slot_value}
     
     def validate_room_type(
@@ -68,18 +69,33 @@ class ValidateBookingForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `room_type` value."""
 
-        if slot_value.lower() not in self.allowed_rooms():
+        if slot_value.lower() not in self.room_type_allowed():
             dispatcher.utter_message(text=f"Currently, you can only book one of the following room types: {'/'.join(self.allowed_rooms())}")
             return {"room_type": None}
         else:
             dispatcher.utter_message(text=f"OK! You want to book a {slot_value} room.")
             return {"room_type": slot_value}
+    
+    def validate_num_visitors(
+        self,slot_value: Any,dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `room_type` value."""
+        visitors_number = int(slot_value)
+        print(type(visitors_number))
+        if visitors_number<1:
+            dispatcher.utter_message(text=f"please enter a valid number of expected visitors")
+            return {"num_visitors": None}
+        else:
+            dispatcher.utter_message(text=f"OK! the expected number of visitors is {slot_value}")
+            return {"num_visitors": slot_value}
         
     def validate_city(self, slot_value: Any, dispatcher: CollectingDispatcher,tracker: Tracker,
                        domain: DomainDict) -> Dict[Text, Any]:
         """validate the city"""
 
-        if slot_value.lower() not in self.allowed_cities():
+        if slot_value.lower() not in self.city_allowed():
             dispatcher.utter_message(text=f"the current available rooms are only located in those cities: {'/'.join(self.allowed_cities())}, \n Please choose one of them.") 
             return {"city":None}
         else:

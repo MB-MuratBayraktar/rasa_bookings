@@ -122,6 +122,12 @@ nlu:
     - surname is [Kaddah](last_name)
     - surname is [Sabanci](last_name)
     - surname is [Bayrak](last_name)
+    - we are [five]{"entity": "num_visitors", "role":"visitors"} people
+    - we are [2]{"entity": "num_visitors", "role":"visitors"} people
+    - we are [two]{"entity": "num_visitors", "role":"visitors"} people
+    - we are [three]{"entity": "num_visitors", "role":"visitors"} people
+    - we are [3]{"entity": "num_visitors", "role":"visitors"} people
+    - we are [5]{"entity": "num_visitors", "role":"visitors"} people
     
 
 

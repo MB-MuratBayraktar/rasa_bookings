@@ -56,6 +56,12 @@ stories:
   - slot_was_set:
     - room_type: single
   - slot_was_set:
+    - requested_slot: num_visitors
+  - slot_was_set:
+    - num_visitors: 3
+  - slot_was_set:
+    - num_visitors: 3
+  - slot_was_set:
     - requested_slot: city
   - slot_was_set:
     - city: Berlin
@@ -81,7 +87,7 @@ stories:
   - action: utter_goodbye
 
 
-- story: interactive_story_1
+- story: interactive_story_2
   steps:
   - intent: greet
   - action: utter_greet
@@ -99,6 +105,11 @@ stories:
   - slot_was_set:
     - last_name: bacher
   - slot_was_set:
+    - requested_slot: num_visitors
+  - slot_was_set:
+    - num_visitors: 3
+  - slot_was_set:
+    - num_visitors: 3
     - requested_slot: time
   - slot_was_set:
     - room_type: tomorrow
@@ -122,7 +133,7 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: interactive_story_1
+- story: interactive_story_3
   steps:
   - intent: request_room_booking
   - action: booking_form
@@ -133,6 +144,12 @@ stories:
     - room_type: this weekend
   - slot_was_set:
     - time: this weekend
+  - slot_was_set:
+    - requested_slot: num_visitors
+  - slot_was_set:
+    - num_visitors: 2 
+  - slot_was_set:
+    - num_visitors: 2
   - slot_was_set:
     - requested_slot: room_type
   - slot_was_set:

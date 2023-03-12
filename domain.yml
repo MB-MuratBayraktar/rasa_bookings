@@ -16,6 +16,9 @@ entities:
   - time
   - first_name
   - last_name
+  - num_visitors:
+      roles:
+        - visitors
   
 
 forms:
@@ -24,8 +27,9 @@ forms:
       - room_type
       - city
       - time
+      - num_visitors
       - first_name
-      - last_name
+      - last_name    
     
 slots:
   first_name:
@@ -78,6 +82,14 @@ slots:
     - type: from_entity
       entity: city
 
+  num_visitors:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: num_visitors
+      role: visitors
+
   
 responses:
   utter_greet:
@@ -99,15 +111,15 @@ responses:
   - text: Are you sure you want to stop the form?
 
   utter_ask_room_type:
-  - text: What type of room would you like to book?
+  - text: What type of room would you like to book (single/double/suit)?
   
   utter_ask_city:
   - text: In which city would you like to book your room?
 
   utter_ask_time:
-  - text: "please specify the preferred check-in and check-out date of reservation as "from... to ..."
+  - text: "please specify the preferred check-in and check-out date of reservation as (from... to ...)"
 
-  utter_ask_number:
+  utter_ask_num_visitors:
   - text: "could you please state the number of expected visitors (including you)?"
 
   utter_ask_first_name:
@@ -115,6 +127,7 @@ responses:
 
   utter_ask_last_name:
   - text: "And your surname please."
+
   
 session_config:
   session_expiration_time: 60

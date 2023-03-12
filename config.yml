@@ -16,6 +16,8 @@ pipeline:
  - name: DucklingEntityExtractor
    url: "http://localhost:8000"
    dimensions: ["number", "time"]
+   timezone: "Europe/Berlin"
+
       
 
 policies:

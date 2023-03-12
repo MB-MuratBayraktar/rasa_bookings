@@ -1,0 +1,70 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-city",
+      "2": "I-city",
+      "3": "L-city",
+      "4": "U-city",
+      "5": "B-first_name",
+      "6": "I-first_name",
+      "7": "L-first_name",
+      "8": "U-first_name",
+      "9": "B-last_name",
+      "10": "I-last_name",
+      "11": "L-last_name",
+      "12": "U-last_name",
+      "13": "B-num_visitors",
+      "14": "I-num_visitors",
+      "15": "L-num_visitors",
+      "16": "U-num_visitors",
+      "17": "B-room_type",
+      "18": "I-room_type",
+      "19": "L-room_type",
+      "20": "U-room_type",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-city": 1,
+      "I-city": 2,
+      "L-city": 3,
+      "U-city": 4,
+      "B-first_name": 5,
+      "I-first_name": 6,
+      "L-first_name": 7,
+      "U-first_name": 8,
+      "B-last_name": 9,
+      "I-last_name": 10,
+      "L-last_name": 11,
+      "U-last_name": 12,
+      "B-num_visitors": 13,
+      "I-num_visitors": 14,
+      "L-num_visitors": 15,
+      "U-num_visitors": 16,
+      "B-room_type": 17,
+      "I-room_type": 18,
+      "L-room_type": 19,
+      "U-room_type": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  },
+  {
+    "tag_name": "role",
+    "ids_to_tags": {
+      "1": "B-visitors",
+      "2": "I-visitors",
+      "3": "L-visitors",
+      "4": "U-visitors",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-visitors": 1,
+      "I-visitors": 2,
+      "L-visitors": 3,
+      "U-visitors": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]
